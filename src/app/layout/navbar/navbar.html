@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+  <!-- App Logo / Title -->
+  <span class="logo" routerLink="/">Online Publishing Hub</span>
+  
+  <!-- Spacer -->
+  <span class="spacer"></span>
+
+  <!-- Navigation Links -->
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/authors" routerLinkActive="active">Authors</a>
+  <a mat-button routerLink="/tags" routerLinkActive="active">Tags</a>
+  <a mat-button routerLink="/editor" routerLinkActive="active">New Post</a>
+
+  <!-- Auth Section -->
+  <ng-container *ngIf="auth.user$ | async as user; else loginBlock">
+    <!-- <span class="user-name">{{ user.displayName }}</span> -->
+    <button mat-stroked-button color="accent" (click)="logout()">
+      Logout
+    </button>
+  </ng-container>
+
+  <ng-template #loginBlock>
+    <button mat-raised-button color="accent" (click)="login()">
+      Login
+    </button>
+  </ng-template>
+  
+</mat-toolbar>
