@@ -40,7 +40,7 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId) && this.auth0) {
       this.auth0.logout({
         logoutParams: {
-          returnTo: typeof window === 'undefined' ? '' : window.location.origin
+          returnTo: typeof window === 'undefined' ? '' : window?.location.origin
         }
       });
     }

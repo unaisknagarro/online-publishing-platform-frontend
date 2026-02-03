@@ -7,6 +7,12 @@ import { Callback } from './pages/callback';
 import { AuthGuard } from './core/guards/auth-guard';
 import { RoleGuard } from './core/guards/role-guard';
 //import { Auth } from './core/guards/auth-guard';
+
+enum Roles{
+  EDITOR = 'editor',
+  USER = 'user'
+}
+
 export const routes: Routes = [
     { path: '', component: Home },
     {
@@ -17,7 +23,7 @@ export const routes: Routes = [
     },
     {
         path: 'editor',
-        canActivate: [AuthGuard, RoleGuard('editor')],
+        canActivate: [AuthGuard, RoleGuard(Roles.EDITOR)],
         loadComponent: () =>
             import('./pages/editor/editor')
                 .then(m => m.Editor)
