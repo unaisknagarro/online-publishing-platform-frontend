@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DestroyRef, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-editor',
@@ -15,9 +16,11 @@ import { Router } from '@angular/router';
   imports: [CommonModule, QuillModule, FormsModule, MatButtonModule, MatInputModule, ReactiveFormsModule, MatCardModule],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',
-  standalone: true
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Editor {
+  private destroyRef = inject(DestroyRef);
   private fb = inject(FormBuilder);
   private articleService = inject(Article);
   private router = inject(Router);
@@ -51,7 +54,7 @@ export class Editor {
           : this.articleForm.value.publishAt
     };
 
-    this.articleService.create(payload).subscribe({
+    this.articleService.create(payload).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/']);

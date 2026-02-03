@@ -14,6 +14,20 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes), provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
+     provideAuth0({
+      domain: environment.oauth0.domain,
+      clientId: environment.oauth0.clientId,
+
+      authorizationParams: {
+        redirect_uri: typeof window !== 'undefined'
+          ? window.location.origin
+          : undefined,
+      },
+
+      // 🔑 Required for SSR
+      cacheLocation: 'memory',
+      useRefreshTokens: false,
+    }),
     {
       provide: ENVIRONMENT_INITIALIZER,
       multi: true,

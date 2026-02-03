@@ -2,13 +2,11 @@
 
 <!-- TAG CAPSULES -->
 <mat-chip-listbox class="tag-list">
-  <mat-chip
-    *ngFor="let tag of tags"
-    color="primary"
-    selected
-    class="tag-chip">
+  @for(tag of tags; track tag.name){
+  <mat-chip color="primary" selected class="tag-chip">
     {{ tag.name }}
   </mat-chip>
+  }
 </mat-chip-listbox>
 
 <hr />
@@ -20,10 +18,7 @@
 
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Tag name</mat-label>
-    <input
-      matInput
-      placeholder="e.g. angular"
-      formControlName="name" />
+    <input matInput placeholder="e.g. angular" formControlName="name" />
 
     <mat-error *ngIf="tagForm.get('name')?.hasError('required')">
       Tag name is required
@@ -33,11 +28,7 @@
     </mat-error>
   </mat-form-field>
 
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    [disabled]="tagForm.invalid">
+  <button mat-raised-button color="primary" type="submit" [disabled]="tagForm.invalid">
     Add Tag
   </button>
 

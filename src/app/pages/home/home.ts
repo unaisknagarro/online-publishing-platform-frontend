@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../core/services/article';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
 })
 
 export class Home {
+  private destroyRef = inject(DestroyRef);
   articles: any[] = [];
   sort = 'latest';
 
@@ -22,6 +24,6 @@ export class Home {
   }
 
   load() {
-    this.articleService.list({ sort: this.sort }).subscribe(res => {console.log('articles: ' + res); this.articles = res as any[]});
+    this.articleService.list({ sort: this.sort }).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => {console.log('articles: ' + res); this.articles = res as any[]});
   }
 }

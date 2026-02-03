@@ -1,4 +1,5 @@
-import { inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { inject, Injectable, afterNextRender, PLATFORM_ID } from '@angular/core';
 //import { Auth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
 import { AuthService as Auth0Service } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
@@ -9,33 +10,47 @@ const NAMESPACE = 'https://publishhub.com';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
+  private platformId = inject(PLATFORM_ID);
+  private auth0 = inject(Auth0Service, { optional: true });
+
 
   user$!: Observable<any>;
   isAuthenticated$!: Observable<boolean>;
   roles$!: Observable<string[]>;
 
-  constructor(private auth0: Auth0Service) {
-    this.user$ = this.auth0.user$;
-    this.isAuthenticated$ = this.auth0.isAuthenticated$;
-    this.roles$ = this.auth0.user$.pipe(
-      map(user => user?.[`${NAMESPACE}/roles`] || [])
-    );
+  constructor() {
+    //afterNextRender(() => {
+    if (isPlatformBrowser(this.platformId) && this.auth0) {
+      this.user$ = this.auth0.user$;
+      this.isAuthenticated$ = this.auth0.isAuthenticated$;
+      this.roles$ = this.auth0.user$.pipe(
+        map(user => user?.[`${NAMESPACE}/roles`] || [])
+      );
+      //});
+    }
   }
 
   login() {
-    this.auth0.loginWithRedirect();
+    if (isPlatformBrowser(this.platformId) && this.auth0) {
+      this.auth0.loginWithRedirect();
+    }
   }
 
   logout() {
-    this.auth0.logout({
-      logoutParams: {
-        returnTo: typeof window === 'undefined' ? '' : window.location.origin
-      }
-    });
+    if (isPlatformBrowser(this.platformId) && this.auth0) {
+      this.auth0.logout({
+        logoutParams: {
+          returnTo: typeof window === 'undefined' ? '' : window.location.origin
+        }
+      });
+    }
   }
 
   getToken() {
-    return this.auth0.getAccessTokenSilently();
+    if (isPlatformBrowser(this.platformId) && this.auth0) {
+      return this.auth0.getAccessTokenSilently();
+    }
+    return null;
   }
 
   hasRole(role: 'editor' | 'user') {

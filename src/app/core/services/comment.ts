@@ -9,15 +9,6 @@ import { environment } from '../../../environments/environment';
 @Injectable({ providedIn: 'root' })
 // export class Comment extends Api {
   export class Comment {
-  // list(articleId: string) {
-  //   return this.get(`/comments/${articleId}`);
-  // }
-
-
-  // add(articleId: string, data: any) {
-  //   return this.post(`/comments/${articleId}`, data);
-  // }
-
   
   constructor(private http: HttpClient) {}
 

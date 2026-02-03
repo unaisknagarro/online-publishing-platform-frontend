@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Tag } from '../../core/services/tag';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-tags',
@@ -20,9 +21,11 @@ import { Tag } from '../../core/services/tag';
   ],
   templateUrl: './tags.html',
   styleUrl: './tags.scss',
-  standalone: true
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Tags implements OnInit {
+  private destroyRef = inject(DestroyRef);
   tags: any[] = [];
   tagForm!: FormGroup;
 
@@ -38,7 +41,7 @@ export class Tags implements OnInit {
   }
 
   loadTags(): void {
-    this.tagService.list().subscribe(res => {
+    this.tagService.list().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => {
       this.tags = res as any[];
     });
   }
@@ -59,9 +62,9 @@ export class Tags implements OnInit {
       return;
     }
 
-    this.tagService.create({ "name": value, "usageCount": 0 }).subscribe();
+    this.tagService.create({ "name": value, "usageCount": 0 }).pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
 
-    this.tags.push({ "name": value, "usageCount": 0 } );
+    this.tags.push({ "name": value, "usageCount": 0 });
     this.tagForm.reset();
 
     this.snackBar.open('Tag added', 'Close', {

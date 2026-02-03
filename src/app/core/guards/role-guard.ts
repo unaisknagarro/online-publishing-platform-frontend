@@ -4,8 +4,12 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth';
 import { map } from 'rxjs/operators';
 
+enum Roles{
+  EDITOR = 'editor',
+  USER = 'user'
+}
 
-export const RoleGuard = (role: 'editor' | 'user'): CanActivateFn => {
+export const RoleGuard = (role: Roles.EDITOR | Roles.USER): CanActivateFn => {
   return () => {
     const auth = inject(AuthService);
     const router = inject(Router);

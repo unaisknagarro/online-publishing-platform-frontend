@@ -25,9 +25,11 @@
         <!-- <mat-form-field appearance="outline" class="full">
             <mat-label>Tags</mat-label>
             <mat-chip-list #chipList>
-                <mat-chip *ngFor="let tag of articleForm.value.tags" removable>
-                    {{ tag }}
-                </mat-chip>
+                @for(tag of articleForm.value.tags; track tag.name){
+                    <mat-chip removable>
+                        {{ tag }}
+                    </mat-chip>
+                }
             </mat-chip-list>
 
             <input matInput placeholder="Add tag & press Enter" (keydown.enter)="

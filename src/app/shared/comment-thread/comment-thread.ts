@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy, DestroyRef, inject } from '@angular/core';
 import { Comment } from '../../core/services/comment';
 import { CommentModel } from '../../models/comment.model';
 import { FormControl } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';  
 
 @Component({
   selector: 'app-comment-thread',
@@ -11,8 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [MatCardModule, ReactiveFormsModule],
   templateUrl: './comment-thread.html',
   styleUrl: './comment-thread.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentThread implements OnInit {
+  private destroyRef = inject(DestroyRef);
   @Input() comments: CommentModel[] = [];   
   @Input() articleId!: string;
 
@@ -29,8 +32,7 @@ export class CommentThread implements OnInit {
   }
 
   loadComments() {
-    alert(this.articleId);
-    this.commentService.getComments(this.articleId).subscribe(res => {
+    this.commentService.getComments(this.articleId).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => {
       this.comments = res;
     });
   }
@@ -44,6 +46,7 @@ export class CommentThread implements OnInit {
 
     this.commentService
       .addComment(this.articleId, { content, parentComment })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.loadComments();
         if (parentComment) this.replyControls[parentComment].reset();
@@ -69,7 +72,7 @@ export class CommentThread implements OnInit {
   
 
   like(commentId: string) {
-    this.commentService.likeComment(commentId).subscribe(updated => {
+    this.commentService.likeComment(commentId).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(updated => {
       const idx = this.comments.findIndex(c => c._id === updated._id);
       this.comments[idx] = updated;
     });

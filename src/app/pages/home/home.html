@@ -6,8 +6,8 @@
     </mat-select>
 </mat-form-field>
 
-
-<mat-card *ngFor="let a of articles" class="article-card">
+@for(a of articles; track a._id){
+<mat-card class="article-card">
     <img mat-card-image [src]="a.thumbnail">
     <h2>
         <a [routerLink]="['article', a._id]" class="article-link">
@@ -17,3 +17,4 @@
     <mat-card-subtitle>{{ a.author.name }} · {{ a.publishDate | date }}</mat-card-subtitle>
     <p>{{ a.description }}</p>
 </mat-card>
+}
