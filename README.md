@@ -9,7 +9,7 @@ This project demonstrates **Angular routing, state management using localStorage
 ## 🚀 Live Demo
 
 🔗 **Application URL:**  
-https://<your-deployment-url>
+https://vercel.com/unais-ks-projects-268e54b1/online-publishing-platform-frontend/8Gu5L4mAeq7xXLVbFy59UoAVkcSF
 
 
 
