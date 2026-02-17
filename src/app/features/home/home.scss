@@ -1,0 +1,115 @@
+.hero {
+  background: linear-gradient(120deg,#673ab7,#3f51b5);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.filter {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.carousel-wrapper {
+  position: relative;
+  margin: 20px 0;
+}
+
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 260px;
+  max-width: 260px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.card p {
+  font-size: 13px;
+  margin: 0 10px 10px;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.actions button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+.actions button:last-child {
+  background: #ff5252;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.6);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav-btn.left { left: -10px; }
+.nav-btn.right { right: -10px; }
+
+.nav-btn:hover {
+  background: black;
+}

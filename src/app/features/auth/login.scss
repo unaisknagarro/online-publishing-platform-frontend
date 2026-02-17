@@ -1,0 +1,15 @@
+.auth-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+mat-card {
+  width: 350px;
+  padding: 25px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}

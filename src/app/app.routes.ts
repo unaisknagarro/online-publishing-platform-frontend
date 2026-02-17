@@ -1,34 +1,27 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { Home } from './pages/home/home';
-import { Authors } from './pages/authors/authors';
-import { Tags } from './pages/tags/tags';
-import { Callback } from './pages/callback';
-import { AuthGuard } from './core/guards/auth-guard';
-import { RoleGuard } from './core/guards/role-guard';
-//import { Auth } from './core/guards/auth-guard';
+import { Home } from './features/home/home';
+import { Login } from './features/auth/login';
+import { Signup } from './features/auth/signup';
+import { ListingCreate } from './features/listing-create/listing-create';
+import { ListingPreview } from './features/preview/listing-preview';
+import { ListingDetail } from './features/listing-detail/listing-detail';
+import { AuthGuard } from './core/guards/auth.guard';
 
-enum Roles{
-  EDITOR = 'editor',
-  USER = 'user'
-}
 
 export const routes: Routes = [
-    { path: '', component: Home },
-    {
-        path: 'article/:id',
-        loadComponent: () =>
-            import('./pages/article-detail/article-detail')
-                .then(m => m.ArticleDetail)
-    },
-    {
-        path: 'editor',
-        canActivate: [AuthGuard, RoleGuard(Roles.EDITOR)],
-        loadComponent: () =>
-            import('./pages/editor/editor')
-                .then(m => m.Editor)
-    },
-    { path: 'authors', component: Authors },
-    { path: 'tags', component: Tags },
-    { path: 'callback', loadComponent: () => import('./pages/callback').then(m => m.Callback) }
+  { path: '', component: Home },
+  { path: 'login', component: Login },
+  { path: 'signup', component: Signup },
+  { path: 'create', component: ListingCreate, canActivate: [AuthGuard] },
+  { path: 'preview/:id', component: ListingPreview, canActivate: [AuthGuard] },
+  { path: 'details/:id', component: ListingPreview, canActivate: [AuthGuard]  },
+  { path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
