@@ -85,26 +85,26 @@ src/
       ├── role-guard.ts
 
 
-│ │ ├── interceptors/
+    ├── interceptors/
 
-│ │ │ ├── token-interceptor.ts
+      ├── token-interceptor.ts
 
 
-│ │ ├── services/
+    ├── services/
 
-│ │ │ ├── api.ts
+      ├── api.ts
 
-│ │ │ ├── api.spec.ts
+      ├── api.spec.ts
 
-│ │ │ ├── article.ts
+      ├── article.ts
 
-│ │ │ ├── auth.ts
+      ├── auth.ts
 
-│ │ │ ├── author.ts
+      ├── author.ts
 
-│ │ │ ├── comment.ts
+      ├── comment.ts
 
-│ │ │ ├── tag.ts
+      ├── tag.ts
 
 
 
