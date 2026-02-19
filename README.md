@@ -76,19 +76,37 @@ src/
 ├── app/
 
 │ ├── core/
+
+
 │ │ ├── guards/
+
 │ │ │ ├── auth-guard.ts
+
 │ │ │ ├── role-guard.ts
+
+
 │ │ ├── interceptors/
+
 │ │ │ ├── token-interceptor.ts
+
+
 │ │ ├── services/
+
 │ │ │ ├── api.ts
+
 │ │ │ ├── api.spec.ts
+
 │ │ │ ├── article.ts
+
 │ │ │ ├── auth.ts
+
 │ │ │ ├── author.ts
+
 │ │ │ ├── comment.ts
+
 │ │ │ ├── tag.ts
+
+
 
 │ ├── layout/
 
@@ -97,6 +115,7 @@ src/
 │ ├── models/
 
 │ │ ├── comment.model.ts
+
 
 │ ├── pages/
 
@@ -111,21 +130,30 @@ src/
 
 │ │ └── article-details/
 
+
 │ ├── shared/
 
 │ │ ├── comment-thread/
+
 
 │ ├── environments/
 
 │ │ ├── environment.ts
 
 │ ├── app.config.ts
+
 │ ├── app.html
+
 │ ├── app.routes.ts
+
 │ ├── app.scss
+
 │ ├── app.ts
+
 │ ├── index.html
+
 │ ├── main.ts
+
 │ ├── styles.scss
 
 
