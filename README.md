@@ -108,53 +108,53 @@ src/
 
 
 
-│ ├── layout/
+  ├── layout/
 
-│ │ ├── navbar/
+    ├── navbar/
 
-│ ├── models/
+  ├── models/
 
-│ │ ├── comment.model.ts
-
-
-│ ├── pages/
+    ├── comment.model.ts
 
 
-│ │ ├── home/
-
-│ │ ├── tags/
-
-│ │ ├── editor/
-
-│ │ ├── authors/
-
-│ │ └── article-details/
+  ├── pages/
 
 
-│ ├── shared/
+    ├── home/
 
-│ │ ├── comment-thread/
+    ├── tags/
+
+    ├── editor/
+
+    ├── authors/
+
+    ├── article-details/
 
 
-│ ├── environments/
+  ├── shared/
 
-│ │ ├── environment.ts
+    ├── comment-thread/
 
-│ ├── app.config.ts
 
-│ ├── app.html
+  ├── environments/
 
-│ ├── app.routes.ts
+    ├── environment.ts
 
-│ ├── app.scss
+  ├── app.config.ts
 
-│ ├── app.ts
+  ├── app.html
 
-│ ├── index.html
+  ├── app.routes.ts
 
-│ ├── main.ts
+  ├── app.scss
 
-│ ├── styles.scss
+  ├── app.ts
+
+  ├── index.html
+
+  ├── main.ts
+
+  ├── styles.scss
 
 
 ---
