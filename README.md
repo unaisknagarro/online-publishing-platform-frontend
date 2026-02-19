@@ -1,16 +1,15 @@
-# 🏠 Angular Property Listing App
+# 🏠 Online Publishing Platform
 
-A modern **Angular-based property listing platform** that allows users to browse listings, view details, add comments, mark favourites, and manage listings after login.
+A modern **Angular-based article publishing platform** that allows users to create / view articles, create and assign tags to articles and also search/filter articles by tags. It also has a commenting system for articles. 
 
-This project demonstrates **Angular routing, state management using localStorage, authentication flow, CRUD operations, and responsive UI design.**
+This project demonstrates **Angular routing, authentication using OAuth0, CRUD operations, and responsive UI design.**
 
 ---
 
 ## 🚀 Live Demo
 
 🔗 **Application URL:**  
-https://<your-deployment-url>
-
+https://advanced-assignment-online-publishi.vercel.app
 
 
 ## 🔑 Demo Credentials
