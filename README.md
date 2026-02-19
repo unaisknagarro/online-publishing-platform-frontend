@@ -72,18 +72,31 @@ Password: demo123
 ## 📂 Project Structure
 
 src/
+
 ├── app/
+
 │ ├── pages/
+
 │ │ ├── home/
+
 │ │ ├── preview/
+
 │ │ ├── create-listing/
+
 │ │ ├── login/
+
 │ │ └── signup/
+
 │ ├── services/
+
 │ │ ├── auth.service.ts
+
 │ │ └── listing.service.ts
+
 │ ├── app.routes.ts
+
 │ └── app.component.ts
+
 └── main.ts
 
 
