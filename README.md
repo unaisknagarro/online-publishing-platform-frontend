@@ -75,29 +75,56 @@ src/
 
 ├── app/
 
+│ ├── core/
+│ │ ├── guards/
+│ │ │ ├── auth-guard.ts
+│ │ │ ├── role-guard.ts
+│ │ ├── interceptors/
+│ │ │ ├── token-interceptor.ts
+│ │ ├── services/
+│ │ │ ├── api.ts
+│ │ │ ├── api.spec.ts
+│ │ │ ├── article.ts
+│ │ │ ├── auth.ts
+│ │ │ ├── author.ts
+│ │ │ ├── comment.ts
+│ │ │ ├── tag.ts
+
+│ ├── layout/
+│ │ ├── navbar/
+
+│ ├── models/
+│ │ ├── comment.model.ts
+
 │ ├── pages/
+
 
 │ │ ├── home/
 
-│ │ ├── preview/
+│ │ ├── tags/
 
-│ │ ├── create-listing/
+│ │ ├── editor/
 
-│ │ ├── login/
+│ │ ├── authors/
 
-│ │ └── signup/
+│ │ └── article-details/
 
-│ ├── services/
+│ ├── shared/
 
-│ │ ├── auth.service.ts
+│ │ ├── comment-thread/
 
-│ │ └── listing.service.ts
+│ ├── environments/
 
+│ │ ├── environment.ts
+
+│ ├── app.config.ts
+│ ├── app.html
 │ ├── app.routes.ts
-
-│ └── app.component.ts
-
-└── main.ts
+│ ├── app.scss
+│ ├── app.ts
+│ ├── index.html
+│ ├── main.ts
+│ ├── styles.scss
 
 
 ---
