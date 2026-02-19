@@ -75,14 +75,14 @@ src/
 
 ├── app/
 
-│ ├── core/
+  ├── core/
 
 
-│ │ ├── guards/
+    ├── guards/
 
-│ │ │ ├── auth-guard.ts
+      ├── auth-guard.ts
 
-│ │ │ ├── role-guard.ts
+      ├── role-guard.ts
 
 
 │ │ ├── interceptors/
