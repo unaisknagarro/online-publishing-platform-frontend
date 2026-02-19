@@ -1,4 +1,4 @@
-# 🏠 Online Publishing Platform
+# 🏠 Online Publishing Platform (Artcile Publishing app created in Angular)
 
 A modern **Angular-based article publishing platform** that allows users to create / view articles, create and assign tags to articles and also search/filter articles by tags. It also has a commenting system for articles. 
 
@@ -22,39 +22,36 @@ Password: demo123
 
 ---
 
-## ✨ Features
+## ✨ Features (Bonus question for tag module attempted)
 
 ### 👤 Authentication
 - Signup & Login
-- Session persistence using localStorage
+- Use of OAuthO as authentication framework
 - Protected user actions
 
-### 🏡 Listings
-- View property listings in carousel layout
-- View full listing details
-- Add comments on listings
-- Mark / unmark favourites
-- Owner-only edit & delete
+### 🏡 Article Publishing
+- Create articles
+- Create tags and assign to article
+- View article details 
+- Add comments on articles
+- Filter articles by tags
 
-### ❤️ Favourites
-- Add listings to favourites
-- Favourites carousel embedded on Home page
+### ❤️ Tags
+- Add tags to articles
+- Search / filter articles by tags
 
 ### 🛠 CRUD Operations
-- Create new listing
-- Edit listing
-- Delete listing
-- View listing details
+- Create new articles/tags
+- Edit Article
+- Delete Article
+- View article details / tags
 
-### 💾 Local Storage Persistence
-- Listings
-- Users
-- Sessions
+### 💾 Database Storage Persistence
+- Articles
+- Tags
 - Comments
-- Favourites
 
 ### 🎨 UI & UX
-- Responsive horizontal carousel
 - Smooth scrolling navigation
 - Clean modern UI
 - Mobile-friendly layout
@@ -63,7 +60,8 @@ Password: demo123
 
 ## 🛠 Tech Stack
 
-- **Frontend Framework:** Angular (Standalone Components)
+- **Frontend Framework:** Angular 20 (Standalone Components)
+- **Backend Application:** NodeJS and MongoDB (Atlas)
 - **Language:** TypeScript
 - **Styling:** CSS3
 - **Routing:** Angular Router
@@ -96,17 +94,17 @@ src/
 ### Step 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/unaisknagarro/online-publishing-platform-frontend.git
 
 Step 2️⃣ Install Dependencies
 
 npm install
 
 Step 3️⃣ Run Application
+Run the backend (NodeJS) application first:
+https://github.com/unaisknagarro/online-publishing-platform-backend
 
-ng serve
-
+npm start
 
 Step 4️⃣ Open in Browser
 
@@ -115,14 +113,13 @@ http://localhost:4200
 
 🔒 Authentication Flow
 
-Signup → Login → Session stored → Access features
+Signup → Login → OAuth0 → Session stored → Access features
 
 
 👨‍💻 Author
 
-Name: <Your Name>
-GitHub: https://github.com/
-<your-username>
+Name: Unais Kamle
+GitHub: https://github.com/unaisknagarro
 
 📜 License
 
