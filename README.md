@@ -1,4 +1,4 @@
-# 🏠 Online Publishing Platform (Artcile Publishing app created in Angular)
+# 🏠 Online Publishing Platform (Article Publishing app created in Angular)
 
 A modern **Angular-based article publishing platform** that allows users to create / view articles, create and assign tags to articles and also search/filter articles by tags. It also has a commenting system for articles. 
 
