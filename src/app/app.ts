@@ -1,22 +1,13 @@
-import { Component, OnInit , signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {NavbarComponent} from './shared/components/navbar';
-import { SeedService } from './core/services/seed.service';
-import { ListingService } from './core/services/listing';
+import { Navbar } from './layout/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
-export class App implements OnInit {
-   constructor(private seed: SeedService, private listingService: ListingService) {}
-
-  protected readonly title = signal('RentApp');
-
-  ngOnInit() {
-    //this.seed.seedData();
-    this.listingService.seedSampleData();
-  }
+export class App {
+  protected readonly title = signal('online-publishing-platform-frontend');
 }

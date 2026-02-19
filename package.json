@@ -1,13 +1,12 @@
 {
-  "name": "rent-app",
+  "name": "online-publishing-platform-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:RentApp": "node dist/RentApp/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -22,17 +21,21 @@
     ]
   },
   "private": true,
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@11.7.0",
   "dependencies": {
-    "@angular/cdk": "^21.1.4",
+    "@angular/cdk": "^21.0.5",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
-    "@angular/core": "^21.0.0",
+    "@angular/core": "^21.0.6",
     "@angular/forms": "^21.0.0",
-    "@angular/material": "^21.1.4",
+    "@angular/material": "^21.0.5",
     "@angular/platform-browser": "^21.0.0",
     "@angular/router": "^21.0.0",
+    "@angular/ssr": "^21.0.2",
+    "@auth0/auth0-angular": "^2.4.0",
     "express": "^5.1.0",
+    "ngx-quill": "^30.0.1",
+    "quill": "^2.0.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

@@ -1,130 +1,59 @@
-# 🏠 Angular Property Listing App
+# OnlinePublishingPlatformFrontend
 
-A modern **Angular-based property listing platform** that allows users to browse listings, view details, add comments, mark favourites, and manage listings after login.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
 
-This project demonstrates **Angular routing, state management using localStorage, authentication flow, CRUD operations, and responsive UI design.**
+## Development server
 
----
-
-## 🚀 Live Demo
-
-🔗 **Application URL:**  
-https://online-publishing-platform-frontend-qf5pac8w6.vercel.app/
-
-
-
-## 🔑 Demo Credentials
-
-Email: demo@user.com
-Password: demo123
-
-
-> You may create your own account using the **Signup page**.
-
----
-
-## ✨ Features
-
-### 👤 Authentication
-- Signup & Login
-- Session persistence using localStorage
-- Protected user actions
-
-### 🏡 Listings
-- View property listings in carousel layout
-- View full listing details
-- Add comments on listings
-- Mark / unmark favourites
-- Owner-only edit & delete
-
-### ❤️ Favourites
-- Add listings to favourites
-- Favourites carousel embedded on Home page
-
-### 🛠 CRUD Operations
-- Create new listing
-- Edit listing
-- Delete listing
-- View listing details
-
-### 💾 Local Storage Persistence
-- Listings
-- Users
-- Sessions
-- Comments
-- Favourites
-
-### 🎨 UI & UX
-- Responsive horizontal carousel
-- Smooth scrolling navigation
-- Clean modern UI
-- Mobile-friendly layout
-
----
-
-## 🛠 Tech Stack
-
-- **Frontend Framework:** Angular (Standalone Components)
-- **Language:** TypeScript
-- **Styling:** CSS3
-- **Routing:** Angular Router
-- **State Management:** Browser LocalStorage
-
----
-
-## 📂 Project Structure
-
-src/
-├── app/
-│ ├── pages/
-│ │ ├── home/
-│ │ ├── preview/
-│ │ ├── create-listing/
-│ │ ├── login/
-│ │ └── signup/
-│ ├── services/
-│ │ ├── auth.service.ts
-│ │ └── listing.service.ts
-│ ├── app.routes.ts
-│ └── app.component.ts
-└── main.ts
-
-
----
-
-## ⚙️ Installation & Setup
-
-### Step 1️⃣ Clone Repository
+To start a local development server, run:
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
-
-Step 2️⃣ Install Dependencies
-
-npm install
-
-Step 3️⃣ Run Application
-
 ng serve
+```
 
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-Step 4️⃣ Open in Browser
+## Code scaffolding
 
-http://localhost:4200
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
+```bash
+ng generate component component-name
+```
 
-🔒 Authentication Flow
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-Signup → Login → Session stored → Access features
+```bash
+ng generate --help
+```
 
+## Building
 
-👨‍💻 Author
+To build the project run:
 
-Name: <Your Name>
-GitHub: https://github.com/
-<your-username>
+```bash
+ng build
+```
 
-📜 License
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-This project is licensed under the MIT License.
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

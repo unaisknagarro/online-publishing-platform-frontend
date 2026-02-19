@@ -1,0 +1,31 @@
+<!-- New comment -->
+<textarea [formControl]="newComment" placeholder="Write a comment"></textarea>
+<button (click)="postComment()">Post</button>
+
+<hr />
+
+@for(comment of comments; track comment._id){
+<div class="comment">
+  <mat-card style="margin-bottom:10px">
+    <strong>{{comment.userName }}</strong>
+    <p>{{ comment.text }}</p>
+    <button (click)="like(comment._id)">
+      👍 {{ comment.likes }}
+    </button>
+    <button (click)="toggleReply(comment._id)">
+      Reply
+    </button>
+    <!-- Reply box -->
+    @if (replyControls[comment._id]) {
+    <textarea [formControl]="replyControls[comment._id]"></textarea>
+    <button (click)="postComment(comment._id)">Reply</button>
+    }
+    @if(comment.replies.length){
+    <div style="margin-left:24px" class="replies">
+      <app-comment-thread [articleId]="articleId" [comments]="comment.replies">
+      </app-comment-thread>
+    </div>
+    }
+  </mat-card>
+</div>
+}

@@ -1,0 +1,7 @@
+<h1>{{ article?.title }}</h1>
+<p>{{ article?.author.name }} · {{ article?.publishDate | date }}</p>
+<div [innerHTML]="article?.content"></div>
+
+
+<h3>Comments</h3>
+<app-comment-thread [articleId]="article?._id" [comments]="comments"></app-comment-thread>

@@ -1,16 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Api } from './api';
+import { CommentModel } from '../../models/comment.model';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({ providedIn: 'root' })
-export class CommentService {
+// export class Comment extends Api {
+  export class Comment {
+  
+  constructor(private http: HttpClient) {}
 
-  get(postId: number) {
-    const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    return comments.filter((c: any) => c.postId == postId);
+  getComments(articleId: string): Observable<CommentModel[]> {
+    return this.http.get<CommentModel[]>(`${environment.apiUrl}/comments/${articleId}`);
   }
 
-  add(postId: number, text: string) {
-    const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    comments.push({ postId, text, date: new Date() });
-    localStorage.setItem('comments', JSON.stringify(comments));
+  addComment(articleId: string, data: any) {
+    return this.http.post<CommentModel>(`${environment.apiUrl}/comments/${articleId}`, data);
+  }
+
+  likeComment(commentId: string) {
+    return this.http.post<CommentModel>(`${environment.apiUrl}/comments/like/${commentId}`, {});
   }
 }
