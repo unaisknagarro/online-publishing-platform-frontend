@@ -1,59 +1,196 @@
-# OnlinePublishingPlatformFrontend
+# 🏠 Online Publishing Platform (Article Publishing app created in Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+A modern **Angular-based article publishing platform** that allows users to create / view articles, create and assign tags to articles and also search/filter articles by tags. It also has a commenting system for articles. 
 
-## Development server
+This project demonstrates **Angular routing, authentication using OAuth0, CRUD operations, and responsive UI design.**
 
-To start a local development server, run:
+---
+
+## 🚀 Live Demo
+
+🔗 **Application URL:**  
+https://advanced-assignment-online-publishi.vercel.app
+
+
+## 🔑 Demo Credentials
+
+Email: demo@user.com
+Password: demo123
+
+
+> You may create your own account using the **Signup page**.
+
+---
+
+## ✨ Features (Bonus question for tag module attempted)
+
+### 👤 Authentication
+- Signup & Login
+- Use of OAuthO as authentication framework
+- Protected user actions
+
+### 🏡 Article Publishing
+- Create articles
+- Create tags and assign to article
+- View article details 
+- Add comments on articles
+- Filter articles by tags
+
+### ❤️ Tags
+- Add tags to articles
+- Search / filter articles by tags
+
+### 🛠 CRUD Operations
+- Create new articles/tags
+- Edit Article
+- Delete Article
+- View article details / tags
+
+### 💾 Database Storage Persistence
+- Articles
+- Tags
+- Comments
+
+### 🎨 UI & UX
+- Smooth scrolling navigation
+- Clean modern UI
+- Mobile-friendly layout
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend Framework:** Angular 20 (Standalone Components)
+- **Backend Application:** NodeJS and MongoDB (Atlas)
+- **Language:** TypeScript
+- **Styling:** CSS3
+- **Routing:** Angular Router
+- **State Management:** Browser LocalStorage
+
+---
+
+## 📂 Project Structure
+
+src/
+
+├── app/
+
+  ├── core/
+
+
+    ├── guards/
+
+      ├── auth-guard.ts
+
+      ├── role-guard.ts
+
+
+    ├── interceptors/
+
+      ├── token-interceptor.ts
+
+
+    ├── services/
+
+      ├── api.ts
+
+      ├── api.spec.ts
+
+      ├── article.ts
+
+      ├── auth.ts
+
+      ├── author.ts
+
+      ├── comment.ts
+
+      ├── tag.ts
+
+
+
+  ├── layout/
+
+    ├── navbar/
+
+  ├── models/
+
+    ├── comment.model.ts
+
+
+  ├── pages/
+
+
+    ├── home/
+
+    ├── tags/
+
+    ├── editor/
+
+    ├── authors/
+
+    ├── article-details/
+
+
+  ├── shared/
+
+    ├── comment-thread/
+
+
+  ├── environments/
+
+    ├── environment.ts
+
+  ├── app.config.ts
+
+  ├── app.html
+
+  ├── app.routes.ts
+
+  ├── app.scss
+
+  ├── app.ts
+
+  ├── index.html
+
+  ├── main.ts
+
+  ├── styles.scss
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### Step 1️⃣ Clone Repository
 
 ```bash
-ng serve
-```
+git clone https://github.com/unaisknagarro/online-publishing-platform-frontend.git
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Step 2️⃣ Install Dependencies
 
-## Code scaffolding
+npm install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Step 3️⃣ Run Application
+Run the backend (NodeJS) application first:
+https://github.com/unaisknagarro/online-publishing-platform-backend
 
-```bash
-ng generate component component-name
-```
+npm start
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Step 4️⃣ Open in Browser
 
-```bash
-ng generate --help
-```
+http://localhost:4200
 
-## Building
 
-To build the project run:
+🔒 Authentication Flow
 
-```bash
-ng build
-```
+Signup → Login → OAuth0 → Session stored → Access features
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+👨‍💻 Author
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Name: Unais Kamle
+GitHub: https://github.com/unaisknagarro
 
-```bash
-ng test
-```
+📜 License
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
