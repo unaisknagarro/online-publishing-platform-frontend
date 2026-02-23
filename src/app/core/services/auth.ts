@@ -8,38 +8,43 @@ const NAMESPACE = 'https://publishhub.com';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private auth0 = inject(Auth0Service, { optional: true });
+  //private auth0 = inject(Auth0Service, { optional: true });
 
 
   user$: Observable<any> = of(null);
   isAuthenticated$!: Observable<boolean>;
   roles$!: Observable<string[]>;
 
-  constructor() {
-      // this.user$ = this.auth0.user$;
-      // this.isAuthenticated$ = this.auth0.isAuthenticated$;
-      // this.roles$ = this.auth0.user$.pipe(
-      //   map(user => user?.[`${NAMESPACE}/roles`] || [])
-      // );
+  constructor(private auth0: Auth0Service) {
+    this.user$ = this.auth0.user$;
+    this.isAuthenticated$ = this.auth0.isAuthenticated$;
+    this.roles$ = this.auth0.user$.pipe(
+      map(user => user?.[`${NAMESPACE}/roles`] || [])
+    );
   }
 
   login() {
-    // if(this.oauth0){
-    //   this.auth0.loginWithRedirect();
-    // }
+    if (this.auth0) {
+      this.auth0.loginWithRedirect();
+    }
     return;
   }
 
   logout() {
-      // this.auth0.logout({
-      //   logoutParams: {
-      //     returnTo: typeof window === 'undefined' ? '' : window.location.origin
-      //   }
-      // });
+    if (this.auth0) {
+      this.auth0.logout({
+        logoutParams: {
+          returnTo: typeof window === 'undefined' ? '' : window.location.origin
+        }
+      });
+    }
   }
 
   getToken() {
-      //return this.auth0.getAccessTokenSilently();
+    if (this.auth0) {
+      return this.auth0.getAccessTokenSilently();
+    }
+    return of(null);
   }
 
   hasRole(role: 'editor' | 'user') {
@@ -47,26 +52,4 @@ export class AuthService {
       map((roles: string[]) => roles.includes(role))
     );
   }
-
-
-
-
-  // googleLogin() {
-  //   return signInWithPopup(this.auth, new GoogleAuthProvider());
-  // }
-
-
-  // facebookLogin() {
-  //   return signInWithPopup(this.auth, new FacebookAuthProvider());
-  // }
-
-
-  // logout() {
-  //   return signOut(this.auth);
-  // }
-
-
-  // async getToken() {
-  //   return this.auth.currentUser?.getIdToken();
-  // }
 }

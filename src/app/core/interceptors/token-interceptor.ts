@@ -8,12 +8,15 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
 
   return from(auth.getAccessTokenSilently()).pipe(
     switchMap(token => {
-      const authReq = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return next(authReq);
+      console.log('Token retrieved:', token);
+      if (token && token.split('.').length === 3) {
+        req = req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      }
+      return next(req);
     })
   );
 };

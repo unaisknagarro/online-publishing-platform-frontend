@@ -26,6 +26,6 @@ export class ArticleDetail {
     private commentService: Comment) {
     const id = route.snapshot.params['id'];
     this.articleService.getById(id).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => this.article = res);
-    this.commentService.getComments(id).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => this.comments = res as CommentModel[]);
+    //this.commentService.getComments(id).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => this.comments = res as CommentModel[]);
   }
 }

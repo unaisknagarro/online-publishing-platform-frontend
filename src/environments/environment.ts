@@ -6,7 +6,7 @@ export const environment = {
         projectId: 'onlinepublishingplatform-8e9d6'
     },
     oauth0:{
-        domain: 'dev-kztmpz0gs58euu0w.us.auth0.com',
+        domain: 'https://dev-kztmpz0gs58euu0w.us.auth0.com',
         clientId: 'UrEwhzE5N0ao5wVyJpUnAPNnS2UIqVlT',
         audience: 'https://api.onlinepublishinghub.com'
     }
